@@ -56,6 +56,34 @@ def crear_reserva(r,nombre,destino):
     print(f"✅ Reserva temporal creada: {id_reserva}")
     return id_reserva
 
+def listar_reservas_en_proceso(r):
+    # Recorre todas las claves reserva_temp:* con SCAN
+    cursor = 0
+    reservas = []
+    while True:
+        cursor, keys = r.scan(cursor=cursor, match="reserva_temp:*", count=100)
+        for k in keys:
+            data = r.hgetall(k)  # {'usuario_id': '1', 'destino_id':'3', 'precio':'...', 'estado':'pendiente'}
+        if cursor == 0:
+            break
+    return reservas
+
+def imprimir_reservas_en_proceso(r):
+    reservas = listar_reservas_en_proceso(r)
+    if not reservas:
+        print("No hay reservas en proceso.")
+        return
+    print("Reservas en proceso (pendientes):")
+    print("-" * 60)
+    for res in reservas:
+        print(f"ID: {res['id_reserva']} | Usuario: {res['usuario']} (#{res['usuario_id']})")
+        print(f"Destino: {res['destino']} (#{res['destino_id']})")
+        print(f"Precio: ${res['precio']:.2f} | TTL: {res['ttl_seg']}s")
+        print("-" * 60)
+
+# Uso:
+# imprimir_reservas_en_proceso(r, db)
+
 def buscar_por_ciudad(driver, ciudad="Bariloche"):
     query = """
     MATCH (u:Usuario)-[:VISITO]->(d:Destino)
@@ -76,4 +104,32 @@ def buscar(driver,name):
     """
     with driver.session() as s:
         result = s.run(query, nombre=name).data()
+    return result
+
+def recomendar_destino_sin_visitar(driver, usuarioId):
+    query = """
+    MATCH (u:Usuario {usuario_id: $usuarioId})
+    MATCH (d:Destino)
+    WHERE NOT (u)-[:VISITO]->(d)
+        AND NOT (u)-[:AMIGO_DE]-(:Usuario)-[:VISITO]->(d)
+    RETURN DISTINCT d
+    ORDER BY d.ciudad
+    """
+    
+    with driver.session() as s:
+        result = s.run(query, usuarioId=usuarioId).data()
+
+    return result
+
+def recomendar_destino_de_amigos(driver, usuarioId):
+    query = """
+    MATCH (u:Usuario {usuario_id: $usuarioId})
+    MATCH (u)-[:AMIGO_DE]-(:Usuario)-[:VISITO]->(d)
+    RETURN DISTINCT d
+    ORDER BY d.ciudad
+    """
+    
+    with driver.session() as s:
+        result = s.run(query, usuarioId=usuarioId).data()
+
     return result
