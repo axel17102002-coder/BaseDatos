@@ -1,0 +1,7 @@
+[
+    {"hotel_id": 1, "nombre": "Hotel Sol", "ciudad": "Bariloche", "precio": 85000, "calificacion": 4, "servicios": ["wifi", "pileta", "desayuno"]},
+    {"hotel_id": 2, "nombre": "Cumbres Andinas", "ciudad": "Bariloche", "precio": 120000, "calificacion": 5, "servicios": ["wifi", "spa", "pileta"]},
+    {"hotel_id": 3, "nombre": "Altos del Norte", "ciudad": "Jujuy", "precio": 60000, "calificacion": 3, "servicios": ["wifi"]},
+    {"hotel_id": 4, "nombre": "Montaña Real", "ciudad": "Mendoza", "precio": 95000, "calificacion": 4, "servicios": ["wifi", "pileta"]},
+    {"hotel_id": 5, "nombre": "Estancia Colonial", "ciudad": "Córdoba", "precio": 70000, "calificacion": 4, "servicios": ["wifi", "desayuno"]}
+]

@@ -1,0 +1,7 @@
+[
+    {"destino_id": "1", "ciudad": "Bariloche", "pais": "Argentina", "tipo": "Montaña", "precio_promedio": 90000},
+    {"destino_id": "2", "ciudad": "Cancún", "pais": "México", "tipo": "Playa", "precio_promedio": 150000},
+    {"destino_id": "3", "ciudad": "Madrid", "pais": "España", "tipo": "Cultural", "precio_promedio": 110000},
+    {"destino_id": "4", "ciudad": "Roma", "pais": "Italia", "tipo": "Histórico", "precio_promedio": 100000},
+    {"destino_id": "5", "ciudad": "Mendoza", "pais": "Argentina", "tipo": "Vinos", "precio_promedio": 80000}
+]
