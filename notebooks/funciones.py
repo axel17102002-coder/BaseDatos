@@ -18,7 +18,7 @@ def cargar_datos(ruta, nombre_coleccion):
 #def hacer_busqueda():
 
 #Buscar usuario por nombre
-def obtener_usuario_id(nombre):
+def obtener_usuario_id(db,nombre):
     usuario = db.usuarios.find_one({"nombre": nombre})
     if usuario:
         return usuario["usuario_id"]
@@ -26,7 +26,7 @@ def obtener_usuario_id(nombre):
         return None
 
 #Buscar destino por nombre
-def obtener_destino_id(destino):
+def obtener_destino_id(db,destino):
     destino = db.destinos.find_one({"ciudad": destino})
     if destino:
         return destino["destino_id"],destino['precio_promedio']
@@ -133,3 +133,4 @@ def recomendar_destino_de_amigos(driver, usuarioId):
         result = s.run(query, usuarioId=usuarioId).data()
 
     return result
+
