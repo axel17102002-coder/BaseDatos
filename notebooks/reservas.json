@@ -1,0 +1,7 @@
+[
+    {"reserva_id": 1, "usuario_id": 1, "destino_id": 2, "fecha_reserva": "2025-07-01", "estado": "Confirmada", "precio_total": 150000},
+    {"reserva_id": 2, "usuario_id": 2, "destino_id": 1, "fecha_reserva": "2025-06-15", "estado": "Pagada", "precio_total": 90000},
+    {"reserva_id": 3, "usuario_id": 3, "destino_id": 3, "fecha_reserva": "2025-05-20", "estado": "Cancelada", "precio_total": 110000},
+    {"reserva_id": 4, "usuario_id": 1, "destino_id": 4, "fecha_reserva": "2025-07-10", "estado": "Pendiente", "precio_total": 100000},
+    {"reserva_id": 5, "usuario_id": 5, "destino_id": 5, "fecha_reserva": "2025-06-25", "estado": "Confirmada", "precio_total": 80000}
+]
