@@ -3,5 +3,6 @@
     {"actividad_id": 2, "nombre": "Degustación de vinos", "tipo": "cultura", "ciudad": "Mendoza", "precio": 30000},
     {"actividad_id": 3, "nombre": "Tour por cerros", "tipo": "aventura", "ciudad": "Jujuy", "precio": 25000},
     {"actividad_id": 4, "nombre": "Recorrido histórico", "tipo": "cultura", "ciudad": "Córdoba", "precio": 20000},
-    {"actividad_id": 5, "nombre": "Excursión en 4x4", "tipo": "aventura", "ciudad": "Salta", "precio": 55000}
+    {"actividad_id": 5, "nombre": "Excursión en 4x4", "tipo": "aventura", "ciudad": "Salta", "precio": 55000},
+    {"actividad_id": 6, "nombre": "Excursión Faro del Fin del Mundo", "tipo": "aventura", "ciudad": "Ushuaia", "precio": 550000}
 ]
